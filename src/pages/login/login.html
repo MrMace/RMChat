@@ -1,0 +1,37 @@
+
+<ion-header>
+
+
+
+</ion-header>
+
+
+<ion-content class="background">
+  <ion-card>
+    <ion-card-header>
+      Login Form
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="credentials.email" ></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="credentials.password"></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 5px;"></div>
+        <a (click)="resetPassword()"></a>
+        <button ion-button block outline color="light" (click)="signin()">Log in</button>
+        <div class="spacer" style="height: 10px;"></div>
+        <p>OR</p>
+        <div class="spacer" style="height: 10px;"></div>
+        <button ion-button block color="facebook">
+          <ion-icon name="logo-facebook"></ion-icon> Login with facebook
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button class="bottom" ion-button clear full color="light" (click)="signup()">Don't have an account? Sign up</button>
+</ion-content>
