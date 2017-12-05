@@ -40,6 +40,6 @@ export class LoginPage {
     }
 
     resetPassword() {
-        this.navCtrl.push('PasswordresetPage');
+        this.navCtrl.push('PasswordResetPage');
     }
 }

@@ -12,6 +12,11 @@ import { MyApp } from './app.component';
 import { AuthorizeProvider } from '../providers/authorize/authorize';
 import { FIREBASE_CONFIG } from './firebaseConfig';
 import { UserProvider } from '../providers/user/user';
+import { ImageHandlerProvider } from '../providers/image-handler/image-handler';
+import { File } from "@ionic-native/file"
+import {FileChooser} from "@ionic-native/file-chooser";
+import { FilePath } from '@ionic-native/file-path';
+
 
 
 
@@ -36,9 +41,13 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+      File,
+      FilePath,
+      FileChooser,
     AuthorizeProvider,
       AngularFireAuth,
-    UserProvider
+    UserProvider,
+    ImageHandlerProvider
   ]
 })
 export class AppModule {}
