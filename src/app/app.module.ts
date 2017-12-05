@@ -11,6 +11,7 @@ import {AngularFirestoreModule} from "angularfire2/firestore";
 import { MyApp } from './app.component';
 import { AuthorizeProvider } from '../providers/authorize/authorize';
 import { FIREBASE_CONFIG } from './firebaseConfig';
+import { UserProvider } from '../providers/user/user';
 
 
 
@@ -36,7 +37,8 @@ import { FIREBASE_CONFIG } from './firebaseConfig';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthorizeProvider,
-      AngularFireAuth
+      AngularFireAuth,
+    UserProvider
   ]
 })
 export class AppModule {}

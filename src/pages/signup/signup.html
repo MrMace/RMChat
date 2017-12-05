@@ -13,6 +13,27 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="background">
+
+  <ion-card>
+  <ion-card-header>
+    Sign Up
+  </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="newUser.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="newUser.password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="newUser.displayName"></ion-input>
+        </ion-item>
+        <button ion-button (click)="signup()">Sign Up</button>
+        <button ion-button (click)="goBack()">Cancel</button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

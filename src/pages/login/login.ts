@@ -24,9 +24,7 @@ export class LoginPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+
 
     signin() {
         this.authorizeService.login(this.credentials).then((res: any) => {
