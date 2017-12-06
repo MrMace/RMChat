@@ -27,11 +27,15 @@ export class LoginPage {
 
 
     signin() {
+
+
         this.authorizeService.login(this.credentials).then((res: any) => {
-            if (!res.code)
+            if (!res.code) {
                 this.navCtrl.setRoot('TabsPage');
-            else
-                alert(res);
+            }
+            else {
+                alert('Please enter your info');
+            }
         })
     }
 
