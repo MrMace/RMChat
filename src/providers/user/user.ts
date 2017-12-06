@@ -55,7 +55,7 @@ export class UserProvider {
             }).catch((err) => {
                 reject(err);
             })
-        })
+        });
         return promise;
     }
 
@@ -77,7 +77,7 @@ export class UserProvider {
             }).catch((err) => {
                 reject(err);
             })
-        })
+        });
         return promise;
     }
 
@@ -115,6 +115,7 @@ export class UserProvider {
     }
 
     getAllUsers() {
+
         var promise = new Promise((resolve, reject) => {
             this.fireData.orderByChild('uid').once('value', (snapshot) => {
                 let userData = snapshot.val();

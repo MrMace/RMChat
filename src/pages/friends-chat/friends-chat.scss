@@ -16,12 +16,12 @@ page-friends-chat {
 
   .bubble::before {
     background-color: #F2F2F2;
-    content: "\00a0";
+    content: "";
     display: block;
     height: 16px;
     position: absolute;
     top: 11px;
-    transform:             rotate( 29deg ) skew( -35deg );
+    transform:rotate( 29deg ) skew( -35deg );
     width:  20px;
   }
 
@@ -45,7 +45,7 @@ page-friends-chat {
     right: -9px;
   }
 
-  .chatwindow {
+  .chatWindow {
     padding-bottom: 70px;
   }
 }

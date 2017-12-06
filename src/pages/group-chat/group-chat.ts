@@ -39,7 +39,7 @@ export class GroupChatPage {
               this.owner = true;
       }).catch((err) => {
           alert(err);
-      })
+      });
       this.groupService.getGroupMsgs(this.groupName);
       this.events.subscribe('newGroupMsg', () => {
           this.allGroupMsgs = [];
@@ -182,8 +182,9 @@ export class GroupChatPage {
 
     scrollTo() {
         setTimeout(() => {
+            console.log(this.content)
             this.content.scrollToBottom()
-        }, 3000);
+        }, 5000);
     }
 
 }

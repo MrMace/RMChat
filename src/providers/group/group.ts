@@ -35,7 +35,7 @@ export class GroupProvider {
 
         return promise;
     }
-
+//shows users groups
     getMyGroups() {
         this.fireGroup.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
             this.myGroups = [];
@@ -104,7 +104,7 @@ export class GroupProvider {
                 }).catch((err) => {
 
                 })
-            })
+            });
             this.getIntoGroup(this.currentGroupName);
         })
     }
@@ -129,7 +129,7 @@ export class GroupProvider {
                     this.currentGroup.push(tempVar[key]);
                 }
             })
-        })
+        });
         this.events.publish('gotMembers');
     }
 
@@ -206,7 +206,7 @@ export class GroupProvider {
                                     this.postMsgs(item, newMessage, resolve);
                                 })
                             }
-                        })
+                        });
                         Promise.all(postedMsgs).then(() => {
                             this.getGroupMsgs(this.currentGroupName);
                             resolve(true);

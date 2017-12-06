@@ -86,13 +86,13 @@ export class RequestsProvider {
         return promise;
     }
 
-    deleteRequest(buddy) {
+    deleteRequest(friend) {
         var promise = new Promise((resolve, reject) => {
-            this.fireReq.child(firebase.auth().currentUser.uid).orderByChild('sender').equalTo(buddy.uid).once('value', (snapshot) => {
-                let somekey;
+            this.fireReq.child(firebase.auth().currentUser.uid).orderByChild('sender').equalTo(friend.uid).once('value', (snapshot) => {
+                let someKey;
                 for (var key in snapshot.val())
-                    somekey = key;
-                this.fireReq.child(firebase.auth().currentUser.uid).child(somekey).remove().then(() => {
+                    someKey = key;
+                this.fireReq.child(firebase.auth().currentUser.uid).child(someKey).remove().then(() => {
                     resolve(true);
                 })
             })
@@ -108,10 +108,10 @@ export class RequestsProvider {
     getMyFriends() {
         let friendsUid = [];
         this.fireFriends.child(firebase.auth().currentUser.uid).on('value', (snapshot) => {
-            let allfriends = snapshot.val();
+            let allFriends = snapshot.val();
             this.myFriends = [];
-            for (var i in allfriends)
-                friendsUid.push(allfriends[i].uid);
+            for (var i in allFriends)
+                friendsUid.push(allFriends[i].uid);
 
             this.userService.getAllUsers().then((users) => {
                 this.myFriends = [];

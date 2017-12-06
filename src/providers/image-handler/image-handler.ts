@@ -10,14 +10,14 @@ export class ImageHandlerProvider {
 
     nativePath: any;
     firestore = firebase.storage();
-    constructor(public filechooser: FileChooser) {
+    constructor(public fileChooser: FileChooser) {
     }
 
 
 
     uploadImage() {
         var promise = new Promise((resolve, reject) => {
-            this.filechooser.open().then((url) => {
+            this.fileChooser.open().then((url) => {
                 (<any>window).FilePath.resolveNativePath(url, (result) => {
                     this.nativePath = result;
                     (<any>window).resolveLocalFileSystemURL(this.nativePath, (res) => {
@@ -26,9 +26,9 @@ export class ImageHandlerProvider {
                             reader.readAsArrayBuffer(resFile);
                             reader.onloadend = (evt: any) => {
                                 var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
-                                var imageStore = this.firestore.ref('/profileimages').child(firebase.auth().currentUser.uid);
+                                var imageStore = this.firestore.ref('/profileImages').child(firebase.auth().currentUser.uid);
                                 imageStore.put(imgBlob).then((res) => {
-                                    this.firestore.ref('/profileimages').child(firebase.auth().currentUser.uid).getDownloadURL().then((url) => {
+                                    this.firestore.ref('/profileImages').child(firebase.auth().currentUser.uid).getDownloadURL().then((url) => {
                                         resolve(url);
                                     }).catch((err) => {
                                         reject(err);
@@ -47,7 +47,7 @@ export class ImageHandlerProvider {
 
     groupPicStore(groupName) {
         var promise = new Promise((resolve, reject) => {
-            this.filechooser.open().then((url) => {
+            this.fileChooser.open().then((url) => {
                 (<any>window).FilePath.resolveNativePath(url, (result) => {
                     this.nativePath = result;
                     (<any>window).resolveLocalFileSystemURL(this.nativePath, (res) => {
@@ -71,13 +71,13 @@ export class ImageHandlerProvider {
                     })
                 })
             })
-        })
+        });
         return promise;
     }
 
     picMsgStore() {
         var promise = new Promise((resolve, reject) => {
-            this.filechooser.open().then((url) => {
+            this.fileChooser.open().then((url) => {
                 (<any>window).FilePath.resolveNativePath(url, (result) => {
                     this.nativePath = result;
                     (<any>window).resolveLocalFileSystemURL(this.nativePath, (res) => {
@@ -87,7 +87,7 @@ export class ImageHandlerProvider {
                             reader.onloadend = (evt: any) => {
                                 var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
                                 var uuid = this.guid();
-                                var imageStore = this.firestore.ref('/picmsgs').child(firebase.auth().currentUser.uid).child('picmsg' + uuid);
+                                var imageStore = this.firestore.ref('/picMsgs').child(firebase.auth().currentUser.uid).child('picMsg' + uuid);
                                 imageStore.put(imgBlob).then((res) => {
                                     resolve(res.downloadURL);
                                 }).catch((err) => {
@@ -101,7 +101,7 @@ export class ImageHandlerProvider {
                     })
                 })
             })
-        })
+        });
         return promise;
     }
 
