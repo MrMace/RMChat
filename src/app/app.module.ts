@@ -16,6 +16,9 @@ import { ImageHandlerProvider } from '../providers/image-handler/image-handler';
 import { File } from "@ionic-native/file"
 import {FileChooser} from "@ionic-native/file-chooser";
 import { FilePath } from '@ionic-native/file-path';
+import { ChatProvider } from '../providers/chat/chat';
+import { GroupProvider } from '../providers/group/group';
+import { RequestsProvider } from '../providers/requests/requests';
 
 
 
@@ -47,7 +50,10 @@ import { FilePath } from '@ionic-native/file-path';
     AuthorizeProvider,
       AngularFireAuth,
     UserProvider,
-    ImageHandlerProvider
+    ImageHandlerProvider,
+    ChatProvider,
+    GroupProvider,
+    RequestsProvider
   ]
 })
 export class AppModule {}
