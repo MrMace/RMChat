@@ -65,7 +65,7 @@ export class GroupChatPage {
                   this.imgornot.push(false);
               }
           }
-          this.scrollTo();
+          // this.scrollTo();
       })
   }
     ionViewDidLoad() {
@@ -80,7 +80,7 @@ export class GroupChatPage {
         this.imgStore.picMsgStore().then((imgurl) => {
             loader.dismiss();
             this.groupService.addGroupMsg(imgurl).then(() => {
-                this.scrollTo();
+                // this.scrollTo();
                 this.newMessage = '';
             })
         }).catch((err) => {
@@ -175,16 +175,16 @@ export class GroupChatPage {
 
     addGroupMsg() {
         this.groupService.addGroupMsg(this.newMessage).then(() => {
-            this.scrollTo();
+            // this.scrollTo();
             this.newMessage = '';
         })
     }
 
-    scrollTo() {
-        setTimeout(() => {
-            console.log(this.content)
-            this.content.scrollToBottom()
-        }, 5000);
-    }
+    // scrollTo() {
+    //     setTimeout(() => {
+    //         console.log(this.content)
+    //         this.content.scrollToBottom()
+    //     }, 5000);
+    // }
 
 }

@@ -30,7 +30,7 @@ export class FriendsChatPage {
 
         this.friend = this.chatService.friend;
         this.photoURL = firebase.auth().currentUser.photoURL;
-        this.scrollTo();
+        // this.scrollTo();
         this.events.subscribe('newMessage', () => {
             this.allMessages = [];
             this.imgornot = [];
@@ -38,7 +38,7 @@ export class FriendsChatPage {
                 this.allMessages = this.chatService.friendMessages;
                 for (var key in this.allMessages) {
                     if (this.allMessages[key].message.substring(0, 4) == 'http')
-                        this.imgornot.push(true);
+                        this.imgornot.push(true)
                     else
                         this.imgornot.push(false);
                 }
@@ -59,11 +59,11 @@ export class FriendsChatPage {
         this.chatService.getFriendMessages();
     }
 
-    scrollTo() {
-        setTimeout(() => {
-            this.content.scrollToBottom();
-        }, 5000);
-    }
+    // scrollTo() {
+    //     setTimeout(() => {
+    //         this.content.scrollToBottom();
+    //     }, 5000);
+    // }
 
     sendPicMsg() {
         let loader = this.loadingCtrl.create({
@@ -73,7 +73,7 @@ export class FriendsChatPage {
         this.imgStore.picMsgStore().then((imgurl) => {
             loader.dismiss();
             this.chatService.addNewMessage(imgurl).then(() => {
-                this.scrollTo();
+                // this.scrollTo();
                 this.newMessage = '';
             })
         }).catch((err) => {
